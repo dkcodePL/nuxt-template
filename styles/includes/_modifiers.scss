@@ -1,0 +1,360 @@
+$spacement: (
+	"none": 0, 
+	"xs": 5px, 
+	"sm": 10px, 
+	"md": 15px, 
+	"lg": 20px, 
+	"xlg": 30px, 
+	"xxlg": 40px,
+	"xxxlg": 50px,
+	"xxxxlg": 60px,
+	"100": 100px
+);
+
+$font-size: (
+	"xxs": .625em,
+	"xs": .75em, 
+	"sm": .875em, 
+	"md": 1.1875em, 
+	"lg": 1.5625em, 
+	"xlg": 2em, 
+	"xxlg": 2.8125em
+);
+
+$border-width: (
+	"xs": 1px, 
+	"sm": 2px, 
+	"md": 4px, 
+	"lg": 6px, 
+	"xlg": 10px, 
+	"xxlg": 15px
+);
+
+
+
+//**
+//* Generate wide range of class modifiers for a given color.
+//* @param  $name   The color name (suitable for class name).
+//* @param  $color  The definition of color (in hex).
+//*/
+@mixin generate-color-classes($name, $color) {
+	.text-#{$name} {
+		color: $color !important;
+	}
+
+	.bg-#{$name} {
+		background-color: $color !important;
+	}
+
+	.b-#{$name} {
+		border-color: $color !important;
+
+		&:before {
+			border-color: $color !important;
+		}
+
+		&:after {
+			border-color: $color !important;
+		}
+	}
+
+	.border-#{$name} {
+		border: 1px solid $color !important;
+	}
+
+	.border-left-#{$name} {
+		border-left: 1px solid $color !important;
+	}
+
+	.border-top-#{$name} {
+		border-top: 1px solid $color !important;
+	}
+
+	.border-right-#{$name} {
+		border-right: 1px solid $color !important;
+	}
+
+	.border-bottom-#{$name} {
+		border-bottom: 1px solid $color !important;
+	}
+}
+
+/* Font sizes */
+@each $class, $size in $font-size {
+	.text-#{$class} {
+		font-size: $size;
+		line-height: 1.45em;
+	}
+}
+
+/* Font weights */
+.text-wxl {
+	font-weight: 100;
+}
+
+.text-wl {
+	font-weight: 200;
+}
+
+.text-wn {
+	font-weight: 400;
+}
+
+.text-wsb {
+	font-weight: 600;
+}
+
+.text-wb {
+	font-weight: 700;
+}
+
+.text-wxb {
+	font-weight: 900;
+}
+
+/* Text cases */
+.text-ncase {
+	text-transform: none;
+}
+
+.text-lowercase {
+	text-transform: lowercase;
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+
+/* Font styles */
+.text-normal {
+	font-style: normal;
+}
+
+.text-italic {
+	font-style: italic;
+}
+
+.text-strike {
+	text-decoration: line-through;
+}
+
+.text-spaced {
+	letter-spacing: .2em;
+}
+
+/* Text alignment */
+.text-left {
+	text-align: left !important;
+}
+
+.text-center {
+	text-align: center !important;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
+/* Colors */
+@include generate-color-classes('black', #000);
+@include generate-color-classes('white', #fff);
+
+/** Backgrounds */
+.bg-none {
+	background-color: transparent;
+}
+
+.b-none {
+	border: 0 !important;
+}
+
+.bt-none {
+	border-top: 0 !important;
+}
+
+.br-none {
+	border-right: 0 !important;
+}
+
+.bb-none {
+	border-bottom: 0 !important;
+}
+
+.bl-none {
+	border-left: 0 !important;
+}
+
+/* Border sizes */
+@each $class, $width in $border-width {
+	.b-#{$class} {
+		border-width: $width !important;
+	}
+
+	.bt-#{$class} {
+		border-top-width: $width !important;
+	}
+
+	.br-#{$class} {
+		border-right-width: $width !important;
+	}
+
+	.bb-#{$class} {
+		border-bottom-width: $width !important;
+	}
+
+	.bl-#{$class} {
+		border-left-width: $width !important;
+	}
+}
+
+/* Utilities */
+.float-none,
+.clear-float,
+.no-float {
+	float: none !important;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.overflow-visible {
+	overflow: visible;
+}
+
+.overflow-auto {
+	overflow: auto;
+}
+
+.display-block {
+	display: block;
+}
+
+.display-inline {
+	display: inline;
+}
+
+.display-inline-block {
+	display: inline-block;
+}
+
+html.display-table {
+	.display-table {
+		display: table;
+	}
+}
+
+html.display-table-row {
+	.display-table-row {
+		display: table-row;
+	}
+}
+
+html.display-table-cell {
+	.display-table-cell {
+		display: table-cell;
+	}
+}
+
+.position-absolute {
+	position: absolute;
+}
+
+.position-static {
+	position: static;
+}
+
+.position-relative {
+	position: relative;
+}
+
+/* Spacement */
+.m-auto {
+	margin: 0 auto !important;
+}
+
+@each $class, $size in $spacement {
+	.m-#{$class} {
+		margin: $size !important;
+	}
+
+	.mt-#{$class} {
+		margin-top: $size !important;
+	}
+
+	.mr-#{$class} {
+		margin-right: $size !important;
+	}
+
+	.mb-#{$class} {
+		margin-bottom: $size !important;
+	}
+
+	.ml-#{$class} {
+		margin-left: $size !important;
+	}
+
+	@if($size > 0) {
+		.m-neg-#{$class} {
+			margin: (-$size) !important;
+		}
+
+		.mt-neg-#{$class} {
+			margin-top: (-$size) !important;
+		}
+
+		.mr-neg-#{$class} {
+			margin-right: (-$size) !important;
+		}
+
+		.mb-neg-#{$class} {
+			margin-bottom: (-$size) !important;
+		}
+
+		.ml-neg-#{$class} {
+			margin-left: (-$size) !important;
+		}
+	}
+
+	.p-#{$class} {
+		padding: $size !important;
+	}
+
+	.pt-#{$class} {
+		padding-top: $size !important;
+	}
+
+	.pr-#{$class} {
+		padding-right: $size !important;
+	}
+
+	.pb-#{$class} {
+		padding-bottom: $size !important;
+	}
+
+	.pl-#{$class} {
+		padding-left: $size !important;
+	}
+
+	@if($size > 0) {
+		.p-neg-#{$class} {
+			padding: (-$size) !important;
+		}
+
+		.pt-neg-#{$class} {
+			padding-top: (-$size) !important;
+		}
+
+		.pr-neg-#{$class} {
+			padding-right: (-$size) !important;
+		}
+
+		.pb-neg-#{$class} {
+			padding-bottom: (-$size) !important;
+		}
+
+		.pl-neg-#{$class} {
+			padding-left: (-$size) !important;
+		}
+	}
+}
