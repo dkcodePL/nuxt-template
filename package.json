@@ -16,7 +16,7 @@
     "vue-image-lightbox": "^6.2.0",
     "vue-infinite-loading": "^2.2.3",
     "vue-lazyload": "^1.2.6",
-    "vue-moment": "^4.0.0",
+    "vue-moment": "^4.1.0",
     "vue-router": "https://github.com/homerjam/vue-router#dist",
     "vue-scrollto": "^2.8.0"
   },
